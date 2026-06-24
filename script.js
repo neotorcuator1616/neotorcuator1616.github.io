@@ -10,7 +10,7 @@ const themeToggle = document.getElementById('themeToggle');
 const savedTheme = localStorage.getItem('theme') || 'light';
 if (savedTheme === 'dark' && themeToggle) {
     document.body.classList.add('dark-mode');
-    themeToggle.textContent = 'Light';
+    themeToggle.textContent = '☀️';
 }
 
 // Toggle dark mode on button click
@@ -18,7 +18,7 @@ if (themeToggle) {
     themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
         const isDarkMode = document.body.classList.contains('dark-mode');
-        themeToggle.textContent = isDarkMode ? 'Light' : 'Theme';
+        themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
         localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     });
 }
