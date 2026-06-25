@@ -3,184 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Professional Portfolio</title>
+    <title>Neo Torcuator | Portfolio</title>
+    <meta name="description" content="Portfolio of Neo George C. Torcuator, UI/UX Designer and Web Developer.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">Neozu</div>
-            <div style="display: flex; align-items: center; gap: 20px;">
+    <div class="bg-orb orb-left" aria-hidden="true"></div>
+    <div class="bg-orb orb-right" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a href="#home" class="brand">Neozu.</a>
+            <nav aria-label="Primary navigation">
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">🌙</button>
+            </nav>
+            <button id="moodButton" class="mood-button" aria-label="Switch profile mood">
+                <span class="dot"></span>
+                <span id="moodLabel">Mood: Focused</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero section">
+            <div class="container hero-grid">
+                <div class="hero-copy reveal">
+                    <p class="eyebrow">UI/UX Designer + Web Developer</p>
+                    <h1>Hello, I am Neo George C. Torcuator</h1>
+                    <p class="lede">
+                        I build polished digital products that balance visual clarity, smooth performance,
+                        and practical business outcomes.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">Start a Project</a>
+                        <a href="#work" class="btn btn-ghost">View Work</a>
+                    </div>
+                    <div class="social-row" aria-label="Social links">
+                        <a href="YOUR_GITHUB_LINK" target="_blank" rel="noreferrer">GitHub</a>
+                        <a href="YOUR_LINKEDIN_LINK" target="_blank" rel="noreferrer">LinkedIn</a>
+                        <a href="YOUR_TWITTER_LINK" target="_blank" rel="noreferrer">Twitter</a>
+                    </div>
+                </div>
+                <aside class="profile-panel reveal" aria-label="Profile card">
+                    <div class="portrait-shell" id="portraitShell">
+                        <div class="portrait-glow"></div>
+                        <div class="portrait"></div>
+                    </div>
+                    <div class="panel-meta">
+                        <p class="meta-role">Current focus</p>
+                        <p class="meta-main" id="focusText">Design systems + frontend architecture</p>
+                    </div>
+                </aside>
             </div>
-        </div>
-    </nav>
+        </section>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container hero-content">
-            <h1 class="hero-title">Hi, I'm Neo George C. Torcuator</h1>
-            <p class="hero-subtitle">UI/UX Designer & Web Developer</p>
-            <p class="hero-description">Welcome to my professional portfolio. I'm passionate about creating amazing digital experiences.</p>
-            <a href="#contact" class="btn btn-primary">Get In Touch</a>
-        </div>
-    </section>
+        <section class="stats-bar reveal" aria-label="Highlights">
+            <div class="container stats-grid">
+                <article>
+                    <p class="stat-value">3+</p>
+                    <p class="stat-label">Years designing interfaces</p>
+                </article>
+                <article>
+                    <p class="stat-value">12</p>
+                    <p class="stat-label">Products shipped</p>
+                </article>
+                <article>
+                    <p class="stat-value">7</p>
+                    <p class="stat-label">Active collaborators</p>
+                </article>
+            </div>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
+        <section id="about" class="section">
+            <div class="container split-grid">
+                <div class="card reveal">
+                    <h2>About</h2>
                     <p>
-                        YOUR_ABOUT_TEXT_HERE. Replace this with your professional background, 
-                        experience, and what drives you. Share your story and what makes you unique.
+                        I craft user journeys that feel intentional and conversion-aware. My workflow combines
+                        research, wireframes, visual exploration, and frontend implementation to ensure ideas survive
+                        beyond Figma.
                     </p>
                     <p>
-                        Add more details about your expertise, achievements, and career journey. 
-                        This is your chance to tell visitors who you are and what you can offer.
+                        I enjoy turning complex product requirements into clear, testable screens that teams can ship fast.
                     </p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-                    <div class="project-info">
-                        <h3>PROJECT_NAME_1</h3>
-                        <p>Brief description of what this project is about and the technologies used.</p>
-                        <div class="project-tags">
-                            <span class="tag">Technology1</span>
-                            <span class="tag">Technology2</span>
-                        </div>
-                        <a href="YOUR_PROJECT_LINK_1" class="project-link">View Project -></a>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
-                    <div class="project-info">
-                        <h3>PROJECT_NAME_2</h3>
-                        <p>Brief description of what this project is about and the technologies used.</p>
-                        <div class="project-tags">
-                            <span class="tag">Technology1</span>
-                            <span class="tag">Technology2</span>
-                        </div>
-                        <a href="YOUR_PROJECT_LINK_2" class="project-link">View Project -></a>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
-                    <div class="project-info">
-                        <h3>PROJECT_NAME_3</h3>
-                        <p>Brief description of what this project is about and the technologies used.</p>
-                        <div class="project-tags">
-                            <span class="tag">Technology1</span>
-                            <span class="tag">Technology2</span>
-                        </div>
-                        <a href="YOUR_PROJECT_LINK_3" class="project-link">View Project -></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
-            <div class="skills-grid">
-                <!-- Skill Category 1 -->
-                <div class="skill-category">
-                    <h3>Frontend Development</h3>
-                    <ul class="skills-list">
-                        <li>HTML5</li>
-                        <li>CSS3</li>
+                <div class="card reveal">
+                    <h2>Primary Stack</h2>
+                    <ul class="pill-list">
+                        <li>Figma</li>
+                        <li>HTML/CSS</li>
                         <li>JavaScript</li>
                         <li>React</li>
-                        <li>Vue.js</li>
-                    </ul>
-                </div>
-
-                <!-- Skill Category 2 -->
-                <div class="skill-category">
-                    <h3>Backend Development</h3>
-                    <ul class="skills-list">
-                        <li>Node.js</li>
-                        <li>Python</li>
-                        <li>Database Design</li>
-                        <li>REST APIs</li>
-                        <li>GraphQL</li>
-                    </ul>
-                </div>
-
-                <!-- Skill Category 3 -->
-                <div class="skill-category">
-                    <h3>Tools & Others</h3>
-                    <ul class="skills-list">
-                        <li>Git</li>
-                        <li>Docker</li>
-                        <li>AWS</li>
-                        <li>UI/UX Design</li>
-                        <li>Agile</li>
+                        <li>Motion Design</li>
+                        <li>Design QA</li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="contact-subtitle">Have a project in mind? Let's work together!</p>
-            
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
+        <section id="work" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <h2>Selected Work</h2>
+                    <p>Project cards with clear outcomes, role, and visual identity.</p>
                 </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Your Email" required>
+                <div class="project-grid">
+                    <article class="project-card reveal">
+                        <div class="project-visual visual-one"></div>
+                        <div class="project-body">
+                            <h3>Finance Dashboard Redesign</h3>
+                            <p>Improved decision speed by redesigning reporting flows and visual hierarchy.</p>
+                            <a href="YOUR_PROJECT_LINK_1" target="_blank" rel="noreferrer">Open case study</a>
+                        </div>
+                    </article>
+                    <article class="project-card reveal">
+                        <div class="project-visual visual-two"></div>
+                        <div class="project-body">
+                            <h3>Product Landing Experience</h3>
+                            <p>Raised conversion with high-contrast storytelling and performance-first sections.</p>
+                            <a href="YOUR_PROJECT_LINK_2" target="_blank" rel="noreferrer">Open case study</a>
+                        </div>
+                    </article>
+                    <article class="project-card reveal">
+                        <div class="project-visual visual-three"></div>
+                        <div class="project-body">
+                            <h3>Portfolio CMS Setup</h3>
+                            <p>Built a reusable content model for quick project publishing and maintenance.</p>
+                            <a href="YOUR_PROJECT_LINK_3" target="_blank" rel="noreferrer">Open case study</a>
+                        </div>
+                    </article>
                 </div>
-                <div class="form-group">
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
-
-            <div class="social-links">
-                <a href="YOUR_GITHUB_LINK" target="_blank" class="social-btn">GitHub</a>
-                <a href="YOUR_LINKEDIN_LINK" target="_blank" class="social-btn">LinkedIn</a>
-                <a href="YOUR_TWITTER_LINK" target="_blank" class="social-btn">Twitter</a>
-                <a href="mailto:YOUR_EMAIL@example.com" class="social-btn">Email</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 YOUR_NAME. All rights reserved.</p>
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <h2>Experience Timeline</h2>
+                    <p>A concise journey through roles and impact.</p>
+                </div>
+                <div class="timeline">
+                    <article class="timeline-item reveal">
+                        <p class="timeline-year">2026</p>
+                        <h3>Senior UI/UX Contributor</h3>
+                        <p>Led product-level design consistency and guided handoff quality across teams.</p>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <p class="timeline-year">2024</p>
+                        <h3>Frontend Designer-Developer</h3>
+                        <p>Built interfaces with component-driven systems and accessibility in mind.</p>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <p class="timeline-year">2022</p>
+                        <h3>Freelance Product Designer</h3>
+                        <p>Partnered with startups to shape MVPs from concept to launch.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container contact-grid">
+                <div class="card reveal">
+                    <h2>Let us build something clean and memorable.</h2>
+                    <p>
+                        If you have a product to launch or improve, I can help from concept direction to
+                        implementation-ready UI.
+                    </p>
+                    <a class="mail-link" href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a>
+                </div>
+                <form class="card contact-form reveal" id="contactForm">
+                    <label>
+                        Name
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" name="email" placeholder="you@example.com" required>
+                    </label>
+                    <label>
+                        Message
+                        <textarea name="message" rows="4" placeholder="Tell me about your project" required></textarea>
+                    </label>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-wrap">
+            <p><span id="currentYear"></span> Neo George C. Torcuator</p>
+            <p>Designed with intention. Built for clarity.</p>
         </div>
     </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite">Message sent. I will reply soon.</div>
 
     <script src="script.js"></script>
 </body>

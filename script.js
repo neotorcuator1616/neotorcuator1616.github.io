@@ -1,197 +1,103 @@
-﻿/* ============================================
-   PROFESSIONAL PORTFOLIO WEBSITE
-   JavaScript - Interactive Features & Animations
-   ============================================ */
+const moodButton = document.getElementById("moodButton");
+const moodLabel = document.getElementById("moodLabel");
+const portraitShell = document.getElementById("portraitShell");
+const focusText = document.getElementById("focusText");
+const currentYear = document.getElementById("currentYear");
+const toast = document.getElementById("toast");
+const contactForm = document.getElementById("contactForm");
 
-// Dark Mode Toggle
-const themeToggle = document.getElementById('themeToggle');
-
-// Load saved theme preference
-const savedTheme = localStorage.getItem('theme') || 'light';
-if (savedTheme === 'dark' && themeToggle) {
-    document.body.classList.add('dark-mode');
-    themeToggle.textContent = '☀️';
-}
-
-// Toggle dark mode on button click
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        const isDarkMode = document.body.classList.contains('dark-mode');
-        themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
-        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    });
-}
-
-// Parallax scrolling effect for hero section
-window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const scrollPosition = window.pageYOffset;
-        hero.style.backgroundPosition = `0px ${scrollPosition * 0.5}px`;
+const moods = [
+    {
+        label: "Mood: Focused",
+        focus: "Design systems + frontend architecture",
+        shellBackground: "linear-gradient(145deg, rgba(24, 39, 71, 0.7), rgba(14, 21, 39, 0.8))"
+    },
+    {
+        label: "Mood: Creative",
+        focus: "Visual direction and motion prototyping",
+        shellBackground: "linear-gradient(145deg, rgba(64, 35, 88, 0.68), rgba(29, 20, 43, 0.78))"
+    },
+    {
+        label: "Mood: Shipping",
+        focus: "Handoff polish, QA, and performance tuning",
+        shellBackground: "linear-gradient(145deg, rgba(38, 64, 53, 0.72), rgba(13, 31, 24, 0.82))"
     }
-});
+];
 
-// Smooth scroll animations on page load
-document.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.nav-links a');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            navLinks.forEach(l => l.style.color = 'var(--text-dark)');
-            link.style.color = 'var(--primary-color)';
-        });
+let moodIndex = 0;
+
+function applyMood(index) {
+    const mood = moods[index];
+    moodLabel.textContent = mood.label;
+    focusText.textContent = mood.focus;
+    portraitShell.style.background = mood.shellBackground;
+}
+
+if (moodButton) {
+    moodButton.addEventListener("click", () => {
+        moodIndex = (moodIndex + 1) % moods.length;
+        applyMood(moodIndex);
     });
+}
 
-    // Update active link on scroll
-    window.addEventListener('scroll', () => {
-        let current = '';
-        const sections = document.querySelectorAll('section');
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
+if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+}
 
-        navLinks.forEach(link => {
-            link.style.color = 'var(--text-dark)';
-            if (link.getAttribute('href').slice(1) === current) {
-                link.style.color = 'var(--primary-color)';
-            }
-        });
-    });
-});
+const revealItems = document.querySelectorAll(".reveal");
 
-// Smooth reveal animations on scroll with staggered effect
-const createScrollAnimationObserver = () => {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) scale(1)';
-                }, index * 100);
+                entry.target.classList.add("visible");
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
-
-    return observer;
-};
-
-const scrollObserver = createScrollAnimationObserver();
-
-// Apply animations to various elements
-document.querySelectorAll('.project-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px) scale(0.95)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    scrollObserver.observe(el);
-});
-
-document.querySelectorAll('.skill-category').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px) scale(0.95)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    scrollObserver.observe(el);
-});
-
-document.querySelectorAll('.about-text').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px) scale(0.95)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    scrollObserver.observe(el);
-});
-
-// Smooth fade-in for form
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.style.opacity = '0';
-    contactForm.style.transform = 'translateY(30px)';
-    contactForm.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    scrollObserver.observe(contactForm);
-}
-
-// Navbar scroll effect with smooth shadow transition
-let lastScrollTop = 0;
-const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > 50) {
-        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-        navbar.style.backdropFilter = 'blur(10px)';
-    } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-        navbar.style.backdropFilter = 'blur(0px)';
+    },
+    {
+        threshold: 0.15,
+        rootMargin: "0px 0px -40px 0px"
     }
-    
-    lastScrollTop = scrollTop;
+);
+
+revealItems.forEach((item, idx) => {
+    item.style.transitionDelay = `${Math.min(idx * 40, 220)}ms`;
+    observer.observe(item);
 });
 
-// Form submission handler
-const contactFormElement = document.getElementById('contactForm');
-if (contactFormElement) {
-    contactFormElement.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form values
-        const name = contactFormElement.querySelector('input[type="text"]').value;
-        const email = contactFormElement.querySelector('input[type="email"]').value;
-        const message = contactFormElement.querySelector('textarea').value;
-        
-        // Simple validation
-        if (name.trim() && email.trim() && message.trim()) {
-            // Show success message with animation
-            const button = contactFormElement.querySelector('button');
-            const originalText = button.textContent;
-            button.textContent = 'Message Sent!';
-            button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-            
-            setTimeout(() => {
-                alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
-                contactFormElement.reset();
-                button.textContent = originalText;
-                button.style.background = '';
-            }, 500);
-        } else {
-            alert('Please fill in all fields.');
+const navLinks = document.querySelectorAll(".nav-links a");
+const sections = [...document.querySelectorAll("main section[id]")];
+
+function setActiveLink() {
+    let currentId = sections[0]?.id || "home";
+
+    sections.forEach((section) => {
+        const top = section.offsetTop - 120;
+        if (window.scrollY >= top) {
+            currentId = section.id;
         }
+    });
+
+    navLinks.forEach((link) => {
+        const target = link.getAttribute("href")?.slice(1);
+        link.classList.toggle("active", target === currentId);
     });
 }
 
-// Mouse follower effect (subtle)
-document.addEventListener('mousemove', (e) => {
-    const mouseX = e.clientX / window.innerWidth;
-    const mouseY = e.clientY / window.innerHeight;
-    
-    document.querySelectorAll('.project-card').forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const cardX = rect.left + rect.width / 2;
-        const cardY = rect.top + rect.height / 2;
-        
-        const distance = Math.sqrt(
-            Math.pow(e.clientX - cardX, 2) + Math.pow(e.clientY - cardY, 2)
-        );
-        
-        if (distance < 200) {
-            const angle = Math.atan2(e.clientY - cardY, e.clientX - cardX);
-            const moveX = Math.cos(angle) * 5;
-            const moveY = Math.sin(angle) * 5;
-            card.style.transform = `translateX(${moveX}px) translateY(${moveY}px)`;
-        } else {
-            card.style.transform = '';
-        }
-    });
-});
+window.addEventListener("scroll", setActiveLink, { passive: true });
+setActiveLink();
 
-// Add console message
-console.log('Portfolio website loaded with smooth animations and dark mode.');
+if (contactForm && toast) {
+    contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        contactForm.reset();
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2400);
+    });
+}
+
+applyMood(moodIndex);
