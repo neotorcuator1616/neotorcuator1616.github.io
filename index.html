@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a0a0a'/%3E%3Cpath d='M12 16h8l18 24V16h8v32h-8L20 24v24h-8V16zm34 0h8v32h-8V16z' fill='%23d71c1c'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +18,7 @@
 
     <header class="site-header">
         <div class="container nav-wrap">
-            <a href="#home" class="brand">Neozu.</a>
+            <a href="#home" class="brand" aria-label="Neo Torcuator home"><span class="brand-mark">NT</span></a>
             <nav aria-label="Primary navigation">
                 <ul class="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
@@ -40,27 +42,27 @@
                     <p class="eyebrow">UI/UX Designer + Web Developer</p>
                     <h1>Hello, I am Neo George C. Torcuator</h1>
                     <p class="lede">
-                        I build polished digital products that balance visual clarity, smooth performance,
-                        and practical business outcomes.
+                        Driven and adaptable Information Technology graduate specializing in Web and Mobile Application Development (WMAD). Skilled in web development, database management, UI/UX design, and system development through academic projects and internships. Eager to contribute technical and problem-solving skills in a professional IT environment. 
                     </p>
                     <div class="hero-actions">
                         <a href="#contact" class="btn btn-primary">Start a Project</a>
                         <a href="#work" class="btn btn-ghost">View Work</a>
                     </div>
                     <div class="social-row" aria-label="Social links">
-                        <a href="YOUR_GITHUB_LINK" target="_blank" rel="noreferrer">GitHub</a>
-                        <a href="YOUR_LINKEDIN_LINK" target="_blank" rel="noreferrer">LinkedIn</a>
-                        <a href="YOUR_TWITTER_LINK" target="_blank" rel="noreferrer">Twitter</a>
+                        <a href="YOUR_FACEBOOK_LINK" target="_blank" rel="noreferrer" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="YOUR_LINKEDIN_LINK" target="_blank" rel="noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="YOUR_GITHUB_LINK" target="_blank" rel="noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <aside class="profile-panel reveal" aria-label="Profile card">
                     <div class="portrait-shell" id="portraitShell">
-                        <div class="portrait-glow"></div>
-                        <div class="portrait"></div>
+                        <img src="images/profile.png" alt="Neo George C. Torcuator" class="portrait">
                     </div>
-                    <div class="panel-meta">
-                        <p class="meta-role">Current focus</p>
-                        <p class="meta-main" id="focusText">Design systems + frontend architecture</p>
+                    <div class="tech-badges">
+                        <span class="badge"><i class="fas fa-code"></i></span>
+                        <span class="badge"><i class="fas fa-rocket"></i></span>
+                        <span class="badge"><i class="fas fa-lightbulb"></i></span>
                     </div>
                 </aside>
             </div>
@@ -69,16 +71,16 @@
         <section class="stats-bar reveal" aria-label="Highlights">
             <div class="container stats-grid">
                 <article>
-                    <p class="stat-value">3+</p>
-                    <p class="stat-label">Years designing interfaces</p>
+                    <p class="stat-value">BSIT</p>
+                    <p class="stat-label">Graduate</p>
                 </article>
                 <article>
-                    <p class="stat-value">12</p>
-                    <p class="stat-label">Products shipped</p>
+                    <p class="stat-value">8+</p>
+                    <p class="stat-label">Academic projects</p>
                 </article>
                 <article>
-                    <p class="stat-value">7</p>
-                    <p class="stat-label">Active collaborators</p>
+                    <p class="stat-value">✓</p>
+                    <p class="stat-label">Career ready</p>
                 </article>
             </div>
         </section>
@@ -88,24 +90,35 @@
                 <div class="card reveal">
                     <h2>About</h2>
                     <p>
-                        I craft user journeys that feel intentional and conversion-aware. My workflow combines
-                        research, wireframes, visual exploration, and frontend implementation to ensure ideas survive
-                        beyond Figma.
+                        Hi, I'm an aspiring IT professional and recent graduate specializing in Web and Mobile Application Development (WMAD). I’m passionate about creating functional, user-focused applications and turning ideas into interactive digital experiences.
                     </p>
                     <p>
-                        I enjoy turning complex product requirements into clear, testable screens that teams can ship fast.
+                        My background includes web development, database management, UI/UX design, and system development gained through projects and hands-on learning. I’m currently focused on growing my skills, gaining industry experience, and building solutions that make an impact.
                     </p>
                 </div>
                 <div class="card reveal">
-                    <h2>Primary Stack</h2>
-                    <ul class="pill-list">
-                        <li>Figma</li>
-                        <li>HTML/CSS</li>
-                        <li>JavaScript</li>
-                        <li>React</li>
-                        <li>Motion Design</li>
-                        <li>Design QA</li>
-                    </ul>
+                    <h2>Skills</h2>
+                    <div class="skills-split">
+                        <div class="skills-column">
+                            <h3>Frontend</h3>
+                            <ul class="pill-list">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                                <li>React</li>
+                            </ul>
+                        </div>
+                        <div class="skills-column">
+                            <h3>Backend</h3>
+                            <ul class="pill-list">
+                                <li>Python</li>
+                                <li>MySQL</li>
+                                <li>PHP</li>
+                                <li>C#</li>
+                                <li>C++</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -113,28 +126,28 @@
         <section id="work" class="section">
             <div class="container">
                 <div class="section-head reveal">
-                    <h2>Selected Work</h2>
+                    <h2>Projects</h2>
                     <p>Project cards with clear outcomes, role, and visual identity.</p>
                 </div>
                 <div class="project-grid">
                     <article class="project-card reveal">
-                        <div class="project-visual visual-one"></div>
+                        <img src="images/project-1.png" alt="SK Caingin Information Management System" class="project-visual">
                         <div class="project-body">
-                            <h3>Finance Dashboard Redesign</h3>
-                            <p>Improved decision speed by redesigning reporting flows and visual hierarchy.</p>
-                            <a href="YOUR_PROJECT_LINK_1" target="_blank" rel="noreferrer">Open case study</a>
+                            <h3>SK Caingin Information Management System</h3>
+                            <p>Discover programs that bring opportunities, learning, and growth to every young individual in Barangay Caingin.</p>
+                            <a href="YOUR_PROJECT_LINK_1" target="_blank" rel="noreferrer">Go to website</a>
                         </div>
                     </article>
                     <article class="project-card reveal">
-                        <div class="project-visual visual-two"></div>
+                        <img src="images/project-2.png" alt="Library Management System" class="project-visual">
                         <div class="project-body">
-                            <h3>Product Landing Experience</h3>
-                            <p>Raised conversion with high-contrast storytelling and performance-first sections.</p>
-                            <a href="YOUR_PROJECT_LINK_2" target="_blank" rel="noreferrer">Open case study</a>
+                            <h3>Library Management System</h3>
+                            <p>Browse, borrow, and read from our extensive collection of books and e-resources. Available 24/7 on any device.</p>
+                            <a href="YOUR_PROJECT_LINK_2" target="_blank" rel="noreferrer">Go to website</a>
                         </div>
                     </article>
                     <article class="project-card reveal">
-                        <div class="project-visual visual-three"></div>
+                        <img src="images/project-3.jpg" alt="Portfolio CMS Setup" class="project-visual">
                         <div class="project-body">
                             <h3>Portfolio CMS Setup</h3>
                             <p>Built a reusable content model for quick project publishing and maintenance.</p>
@@ -148,24 +161,19 @@
         <section id="experience" class="section">
             <div class="container">
                 <div class="section-head reveal">
-                    <h2>Experience Timeline</h2>
+                    <h2>Experiences</h2>
                     <p>A concise journey through roles and impact.</p>
                 </div>
                 <div class="timeline">
                     <article class="timeline-item reveal">
-                        <p class="timeline-year">2026</p>
-                        <h3>Senior UI/UX Contributor</h3>
-                        <p>Led product-level design consistency and guided handoff quality across teams.</p>
+                        <p class="timeline-year">2025</p>
+                        <h3>Salesforce Intern</h3>
+                        <p>Built foundational knowledge in Salesforce CRM, including data management, workflows, and platform navigation. Gained experience with cloud-based business solutions while strengthening analytical and problem-solving skills. </p>
                     </article>
                     <article class="timeline-item reveal">
-                        <p class="timeline-year">2024</p>
-                        <h3>Frontend Designer-Developer</h3>
-                        <p>Built interfaces with component-driven systems and accessibility in mind.</p>
-                    </article>
-                    <article class="timeline-item reveal">
-                        <p class="timeline-year">2022</p>
-                        <h3>Freelance Product Designer</h3>
-                        <p>Partnered with startups to shape MVPs from concept to launch.</p>
+                        <p class="timeline-year">2025-2026</p>
+                        <h3>Accenture Intern SAP/ABAP</h3>
+                        <p>Completed internship training in SAP ABAP with hands-on experience in developing, testing, and modifying ABAP programs. Improved debugging, data handling, and problem-solving skills in enterprise application development.</p>
                     </article>
                 </div>
             </div>
@@ -179,7 +187,7 @@
                         If you have a product to launch or improve, I can help from concept direction to
                         implementation-ready UI.
                     </p>
-                    <a class="mail-link" href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a>
+                    <a class="mail-link" href="mailto:neotorcuator1616@gmail.com">neotorcuator1616@gmail.com</a>
                 </div>
                 <form class="card contact-form reveal" id="contactForm">
                     <label>

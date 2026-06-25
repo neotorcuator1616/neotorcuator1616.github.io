@@ -1,26 +1,18 @@
 const moodButton = document.getElementById("moodButton");
-const moodLabel = document.getElementById("moodLabel");
 const portraitShell = document.getElementById("portraitShell");
-const focusText = document.getElementById("focusText");
 const currentYear = document.getElementById("currentYear");
 const toast = document.getElementById("toast");
 const contactForm = document.getElementById("contactForm");
 
 const moods = [
     {
-        label: "Mood: Focused",
-        focus: "Design systems + frontend architecture",
-        shellBackground: "linear-gradient(145deg, rgba(24, 39, 71, 0.7), rgba(14, 21, 39, 0.8))"
+        label: "Mood: Focused"
     },
     {
-        label: "Mood: Creative",
-        focus: "Visual direction and motion prototyping",
-        shellBackground: "linear-gradient(145deg, rgba(64, 35, 88, 0.68), rgba(29, 20, 43, 0.78))"
+        label: "Mood: Creative"
     },
     {
-        label: "Mood: Shipping",
-        focus: "Handoff polish, QA, and performance tuning",
-        shellBackground: "linear-gradient(145deg, rgba(38, 64, 53, 0.72), rgba(13, 31, 24, 0.82))"
+        label: "Mood: Shipping"
     }
 ];
 
@@ -28,9 +20,10 @@ let moodIndex = 0;
 
 function applyMood(index) {
     const mood = moods[index];
-    moodLabel.textContent = mood.label;
-    focusText.textContent = mood.focus;
-    portraitShell.style.background = mood.shellBackground;
+    if (moodButton) {
+        const moodLabel = moodButton.querySelector("#moodLabel") || moodButton;
+        moodLabel.textContent = mood.label;
+    }
 }
 
 if (moodButton) {
@@ -68,13 +61,20 @@ revealItems.forEach((item, idx) => {
 
 const navLinks = document.querySelectorAll(".nav-links a");
 const sections = [...document.querySelectorAll("main section[id]")];
+const contactEmailLink = document.querySelector(".mail-link");
 
 function setActiveLink() {
+    const viewportCenter = window.innerHeight * 0.5;
     let currentId = sections[0]?.id || "home";
+    let closestDistance = Number.POSITIVE_INFINITY;
 
     sections.forEach((section) => {
-        const top = section.offsetTop - 120;
-        if (window.scrollY >= top) {
+        const rect = section.getBoundingClientRect();
+        const sectionCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(sectionCenter - viewportCenter);
+
+        if (rect.top <= viewportCenter + 40 && rect.bottom >= 80 && distance < closestDistance) {
+            closestDistance = distance;
             currentId = section.id;
         }
     });
@@ -86,18 +86,37 @@ function setActiveLink() {
 }
 
 window.addEventListener("scroll", setActiveLink, { passive: true });
+window.addEventListener("resize", setActiveLink, { passive: true });
+window.addEventListener("hashchange", setActiveLink);
 setActiveLink();
 
 if (contactForm && toast) {
     contactForm.addEventListener("submit", (event) => {
         event.preventDefault();
-        contactForm.reset();
+
+        const formData = new FormData(contactForm);
+        const name = formData.get("name")?.toString().trim() || "";
+        const email = formData.get("email")?.toString().trim() || "";
+        const message = formData.get("message")?.toString().trim() || "";
+        const targetEmail = contactEmailLink?.getAttribute("href")?.replace("mailto:", "") || "neotorcuator1616@gmail.com";
+
+        const subject = encodeURIComponent(`Portfolio inquiry from ${name || "your website"}`);
+        const body = encodeURIComponent([
+            `Name: ${name}`,
+            `Email: ${email}`,
+            "",
+            message
+        ].join("\n"));
+
+        window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+
+        toast.textContent = "Opening your email app with a prefilled message.";
         toast.classList.add("show");
 
-        setTimeout(() => {
+        contactForm.reset();
+
+        window.setTimeout(() => {
             toast.classList.remove("show");
         }, 2400);
     });
 }
-
-applyMood(moodIndex);
